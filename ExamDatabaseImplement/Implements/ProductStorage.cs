@@ -19,7 +19,6 @@ namespace ExamDatabaseImplement.Implements
                      {
                          Id = rec.Id,
                          ProductName = rec.ProductName,
-                         Count = rec.Count,
                          DateAdd = rec.DateAdd,
                          PlaceCreate = rec.PlaceCreate
                      })
@@ -41,7 +40,6 @@ namespace ExamDatabaseImplement.Implements
                     {
                         Id = rec.Id,
                         ProductName = rec.ProductName,
-                        Count = rec.Count,
                         DateAdd = rec.DateAdd,
                         PlaceCreate = rec.PlaceCreate
                     })
@@ -63,7 +61,6 @@ namespace ExamDatabaseImplement.Implements
                     {
                         Id = product.Id,
                         ProductName = product.ProductName,
-                        Count = product.Count,
                         DateAdd = product.DateAdd,
                         PlaceCreate = product.PlaceCreate
                     } :

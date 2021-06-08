@@ -82,6 +82,7 @@ namespace ExamView
                     try
                     {
                         dishLogic.Delete(new DishBindingModel { Id = id });
+                        LoadData();
                     }
                     catch(Exception ex)
                     {

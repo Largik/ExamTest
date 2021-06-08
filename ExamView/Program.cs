@@ -30,6 +30,7 @@ namespace ExamView
 
             currentContainer.RegisterType<DishLogic>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<ProductLogic>(new HierarchicalLifetimeManager());
+            
             return currentContainer;
         }
     }
