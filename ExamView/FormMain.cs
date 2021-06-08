@@ -18,10 +18,12 @@ namespace ExamView
         [Dependency]
         public new IUnityContainer Container { get; set; }
         private readonly DishLogic dishLogic;
-        public FormMain(DishLogic dishLogic)
+        private readonly ReportLogic reportLogic;
+        public FormMain(DishLogic dishLogic, ReportLogic reportLogic)
         {
             InitializeComponent();
             this.dishLogic = dishLogic;
+            this.reportLogic = reportLogic;
         }
         private void FormMain_Load(object sender, EventArgs e)
         {
@@ -95,6 +97,25 @@ namespace ExamView
         private void buttonRef_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void отчетToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                reportLogic.SaveJSONDataContract(new ReportBindingModel
+                {
+                    DateFrom = DateTime.Now.AddDays(-30),
+                    DateTo = DateTime.Now.AddDays(20)
+                });
+                MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+            }
         }
     }
 }

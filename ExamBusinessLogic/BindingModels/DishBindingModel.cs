@@ -8,6 +8,8 @@ namespace ExamBusinessLogic.BindingModels
         public int? Id { get; set; }
         public string TypeDish { get; set; }
         public DateTime DateImplement { get; set; }
+        public DateTime? DateFrom { get; set; }
+        public DateTime? DateTo { get; set; }
         public Dictionary<int, (string, int)> DishProduct { get; set; }
     }
 }

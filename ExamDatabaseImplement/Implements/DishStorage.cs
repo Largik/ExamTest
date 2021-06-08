@@ -44,7 +44,8 @@ namespace ExamDatabaseImplement.Implements
                 return context.Dishes
                     .Include(rec => rec.DishProducts)
                     .ThenInclude(rec => rec.Product)
-                    .Where(rec => rec.TypeDish.Contains(model.TypeDish))
+                    .Where(rec => (!model.DateFrom.HasValue && !model.DateTo.HasValue && rec.DateImplement.Date == model.DateImplement.Date)
+                    || (model.DateFrom.HasValue && model.DateTo.HasValue && rec.DateImplement.Date >= model.DateFrom.Value.Date && rec.DateImplement.Date <= model.DateTo.Value.Date))
                     .ToList()
                     .Select(rec => new DishViewModel
                     {
